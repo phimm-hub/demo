@@ -11,7 +11,7 @@ try {
   // test shell
   
    stage('test') {
-     steps {
+     node {
      echo 'hello world'
    }
    }
