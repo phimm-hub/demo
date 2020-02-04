@@ -10,7 +10,7 @@ try {
   }
   // test shell
   
-   stage('init') {
+   stage('test') {
      steps {
      echo 'hello world'
    }
