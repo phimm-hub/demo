@@ -11,7 +11,9 @@ try {
   // test shell
   
    stage('init') {
-     sh echo 'hello world'
+     steps {
+     echo 'hello world'
+   }
    }
   
   // Run terraform init
