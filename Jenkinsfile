@@ -26,7 +26,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          sh '/usr/local/bin/terraform init'
+          sh '/usr/local/bin/terraform init -var-file="variables.tfvars"'
         }
       }
     }
@@ -42,7 +42,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          sh '/usr/local/bin/terraform plan'
+          sh '/usr/local/bin/terraform plan -var-file="variables.tfvars"'
         }
       }
     }
@@ -60,7 +60,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            sh '/usr/local/bin/terraform apply -auto-approve'
+            sh '/usr/local/bin/terraform apply -auto-approve -var-file="variables.tfvars"'
           }
         }
       }
