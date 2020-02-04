@@ -8,6 +8,11 @@ try {
       checkout scm
     }
   }
+  // test shell
+  
+   stage('init') {
+     sh echo 'hello world'
+   }
   
   // Run terraform init
   stage('init') {
