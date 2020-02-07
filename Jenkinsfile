@@ -87,7 +87,7 @@ try {
   
    stage('deploy app to host') {
      steps {
-     sh TESTVAR="\$(cat instanceip.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")"
+     sh TESTVAR="\$(cat instanceip.txt |grep -oE "([0-9]{1,3}.){3}[0-9]{1,3}")"
      sh echo $TESTVAR
    }
    }
