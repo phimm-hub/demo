@@ -88,8 +88,8 @@ try {
    stage('deploy app to host') {
      node {
        sh 'IP=$(cat instanceip.txt |grep -oE "([0-9]{1,3}.){3}[0-9]{1,3}")'
-       sh 'echo $IP'
-       sh 'ssh -i /etc/awskey/key.pem root@$IP'
+       sh 'echo ${IP}'
+       sh 'ssh -i /etc/awskey/key.pem root@${IP}'
        sh 'ifconfig'
    }
    }
