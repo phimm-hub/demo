@@ -3,7 +3,7 @@ String credentialsId = 'awsCredentials'
 
 try {
   stage('checkout') {
-    steps {
+    node {
       cleanWs()
       checkout scm
     }
@@ -11,14 +11,14 @@ try {
   // test shell
   
    stage('test') {
-     steps {
+     node {
      echo 'hello world'
    }
    }
   
   // Run terraform init
   stage('init') {
-    steps {
+    node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
@@ -34,7 +34,7 @@ try {
 
   // Run terraform plan
   stage('plan') {
-    steps {
+    node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
@@ -52,7 +52,7 @@ try {
 
     // Run terraform apply
     stage('apply') {
-      steps {
+      node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
@@ -68,7 +68,7 @@ try {
 
     // Run terraform show
     stage('show') {
-      steps {
+      node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
@@ -86,7 +86,7 @@ try {
    // test shell
   
    stage('deploy app to host') {
-     steps {
+     node {
        sh 'IP="$(cat instanceip.txt |grep -oE "([0-9]{1,3}.){3}[0-9]{1,3}")"'
      sh 'echo $IP'
    }
