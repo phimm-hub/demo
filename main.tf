@@ -44,5 +44,10 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+# Echo Public IP
+  
+    provisioner "local-exec" {
+    command = "echo ${var.public_ips}"
+  }
   
 }
