@@ -77,7 +77,7 @@ try {
         ]]) {
           ansiColor('xterm') {
             sh '/usr/local/bin/terraform show'
-            sh '/usr/local/bin/terraform output instance_ids >> instanceip.txt'
+            sh '/usr/local/bin/terraform output instance_ips >> instanceip.txt'
           }
         }
       }
