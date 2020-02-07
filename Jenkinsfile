@@ -92,7 +92,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            ssh  ${aws_instance.default.*.public_ip}
+            ssh  ${aws_instance.default.public_ip}
           }
         }
       }
