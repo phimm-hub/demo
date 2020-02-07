@@ -87,8 +87,8 @@ try {
   
    stage('deploy app to host') {
      node {
-       sh 'IP="$(cat instanceip.txt |grep -oE "([0-9]{1,3}.){3}[0-9]{1,3}")"'
-     sh 'echo $IP'
+       sh 'IP=$(cat instanceip.txt |grep -oE "([0-9]{1,3}.){3}[0-9]{1,3}")'
+       sh 'echo $IP'
    }
    }
     
