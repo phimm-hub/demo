@@ -77,10 +77,20 @@ try {
         ]]) {
           ansiColor('xterm') {
             sh '/usr/local/bin/terraform show'
+            sh '/usr/local/bin/terraform output instance_ids >> instanceip.txt
           }
         }
       }
     }
+    
+   // test shell
+  
+   stage('deploy app to host') {
+     node {
+     sh TESTVAR="$(cat instanceip.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")"
+     sh echo $TESTVAR
+   }
+   }
     
   }
   currentBuild.result = 'SUCCESS'
