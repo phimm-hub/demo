@@ -82,22 +82,6 @@ try {
       }
     }
     
-        // Run terraform show
-    stage('deploy app') {
-      node {
-        withCredentials([[
-          $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
-          accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-          ansiColor('xterm') {
-            ssh  ${aws_instance.default.public_ip}
-          }
-        }
-      }
-    }
-    
   }
   currentBuild.result = 'SUCCESS'
 }
